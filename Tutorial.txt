@@ -15,3 +15,11 @@ Int, Float, String, Boolean, ID
 7:AULA 05: Quando usar Array no typeDefs com um '!' ele não pode ser nulo e no results é obrigatoriamente retornar um valor e no  array pelo menos vazio []
 
 8: AULA 06: Criando schemas que são modelos pra ser chamados do Query de fomra mais simples e terem seus valores preechidos no resovers, tambem instanciamos os usuarios e produtois em arrays pra serem chamados no resolvers de forma mais limpa, mudando a sintaxe de simplesmente pondo em plural add "[]" aos modelos
+
+8: AULA 07: passei um segundo argumento em usuario(_, args) com ele posso retornar uma função pra buscar no Array usuarios um ID expessífico ou nome expessífico depende dos parâmetros passados na Query
+
+9: dentro de usuario() criei uma condicional pra buscar o nome caso não encontre o ID
+
+10: revisei o conceito fazendo a mesma coisa com a lista de produtos
+
+11:AULA 08: instanciei uma nova propriedade chamda db passei o type associaei na query e retornei no resolvers
