@@ -1,0 +1,6 @@
+1: AULA 03 : instalar 
+npm init -y , npm install -d nodemon, npm install graphql apollo-server
+
+2: no package.json criar um script: "start" : "nodemon"
+
+3: criar o index.js, com as configurações básicas
