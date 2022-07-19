@@ -8,6 +8,7 @@ type Query {
     nome: String
     ativo: Boolean
     id: ID
+    tecnologias:[String]!
     
 }
 
@@ -28,6 +29,9 @@ const resolvers = {
         },
         id() {
             return 15464
+        },
+        tecnologias() {
+            return ['GraphQL', 'React', 'CSS', 'JavaScript',8 ]
         }
     
     }
