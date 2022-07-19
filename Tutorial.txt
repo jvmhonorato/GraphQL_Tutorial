@@ -4,3 +4,10 @@ npm init -y , npm install -d nodemon, npm install graphql apollo-server
 2: no package.json criar um script: "start" : "nodemon"
 
 3: criar o index.js, com as configurações básicas
+
+4:AULA 04: Type scalar:
+Int, Float, String, Boolean, ID
+
+5: npm start vai abrir o apollo-sever na porta 4000 e la tem m playground pra fazer as querys 
+
+6: no typeDefs eu insiro um contexto de tipos como se fosse um interface e no resolvers eu insiro os dados que serão chamados na query do apollo server

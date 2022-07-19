@@ -1,21 +1,41 @@
 const {gql, ApolloServer} = require("apollo-server")
 
-const resolvers = {
-    Query:{
-       hello() {
-        return 'World'
-       } 
-    }
-}
+
 const typeDefs = gql`
 type Query {
-    hello: String
+    idade: Int
+    salario: Float
+    nome: String
+    ativo: Boolean
+    id: ID
+    
 }
+
 `
+const resolvers = {
+    Query:{
+        idade() {
+            return 18
+        },
+        salario() {
+            return 12345.45
+        },
+        nome() {
+            return 'Victor'
+        },
+        ativo() {
+            return true
+        },
+        id() {
+            return 15464
+        }
+    
+    }
+}
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers
+    typeDefs,resolvers
+    
 })
 
 server.listen()
