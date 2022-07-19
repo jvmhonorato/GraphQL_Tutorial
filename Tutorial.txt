@@ -13,3 +13,5 @@ Int, Float, String, Boolean, ID
 6: no typeDefs eu insiro um contexto de tipos como se fosse um interface e no resolvers eu insiro os dados que serão chamados na query do apollo server
 
 7:AULA 05: Quando usar Array no typeDefs com um '!' ele não pode ser nulo e no results é obrigatoriamente retornar um valor e no  array pelo menos vazio []
+
+8: AULA 06: Criando schemas que são modelos pra ser chamados do Query de fomra mais simples e terem seus valores preechidos no resovers, tambem instanciamos os usuarios e produtois em arrays pra serem chamados no resolvers de forma mais limpa, mudando a sintaxe de simplesmente pondo em plural add "[]" aos modelos

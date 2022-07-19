@@ -1,38 +1,64 @@
 const {gql, ApolloServer} = require("apollo-server")
 
+const produtos = [
+    {
+        id:1,
+        nome:'laptop',
+        valor:12200.50
+    },
+    {
+        id:2,
+        nome:'notebook',
+        valor:15000.55
+    }
+]
+const usuarios = [  
+    {
+        id:1,
+        nome:'Victor',
+        salario: 12365.50,
+        ativo: true,
+        idade:32 
+    },
+    {
+        id:2,
+        nome:'João',
+        salario: 15365.50,
+        ativo: true,
+        idade:35
+    }
+]
 
 const typeDefs = gql`
-type Query {
+type Products {
+    id: ID
+    nome: String
+    valor: Float
+}
+
+type Users {
     idade: Int
     salario: Float
     nome: String
     ativo: Boolean
     id: ID
-    tecnologias:[String]!
+}
+type Query {
+
+    usuarios: [Users]
+    produtos: [Products]
     
 }
 
 `
 const resolvers = {
     Query:{
-        idade() {
-            return 18
-        },
-        salario() {
-            return 12345.45
-        },
-        nome() {
-            return 'Victor'
-        },
-        ativo() {
-            return true
-        },
-        id() {
-            return 15464
-        },
-        tecnologias() {
-            return ['GraphQL', 'React', 'CSS', 'JavaScript',8 ]
-        }
+       usuarios() {
+        return usuarios
+       },
+       produtos() {
+        return produtos
+       }
     
     }
 }
