@@ -22,4 +22,10 @@ Int, Float, String, Boolean, ID
 
 10: revisei o conceito fazendo a mesma coisa com a lista de produtos
 
-11:AULA 08: instanciei uma nova propriedade chamda db passei o type associaei na query e retornei no resolvers
+11:AULA 08: instanciei uma nova propriedade chamada db passei o typeDefs dela Users com todas as propriedades tipando cada uma delas, em seguida fui em, type Query e disse que usuario: user recebe o tipo User e por ultimo no resolvers retornei o usuario() o db.
+
+12: quando a propriedade que está na base de dados, tem divergencia ou ausencia em relação aos typeDefs, eu chamo no resolvers o objeto em questão a dentro dele a propriedade que está retornando nula e dou um retunr na propriedade com os dados que eu quero adicionar ou passo o obj como parâmetro da propriedade telefone(obj) pra depois associar com a propriedade que eu quiser return obj.telefone_fixo
+
+13: adicionei perfil como uma nova propriedade de usuario, depois instaciei em um array perfis associando o id a descrição, depois crio um type query  e associo perfis:[Perfil] ou os dados a tipagem e tambem perfil:Perfil no type User pra fazer uma bifurcação de objetos
+
+14: criei um args no segundo parâmetro de usuario no resolvers com o metodo .find() juntamente com criei no type query o usuario(id:Int): User

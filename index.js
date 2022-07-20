@@ -5,101 +5,65 @@ const db = [
         id:1,
         nome:'Victor',
         email:'victor@gmail.com',
-        telefone:"31 1234 5678",
+        telefone_fixo:"31 1234 5678",
+        perfil:1
     },
     {
         id:2,
         nome:'Agda',
         email:'agda@gmail.com',
         telefone:"71 1245 4878",
+        perfil:2
     },
 ]
-const produtos = [
-    {
-        id:1,
-        nome:'laptop',
-        valor:12200.50
-    },
-    {
-        id:2,
-        nome:'notebook',
-        valor:15000.55
-    }
-]
-const usuarios = [  
-    {
-        id:1,
-        nome:'Victor',
-        salario: 12365.50,
-        ativo: true,
-        idade:32 
-    },
-    {
-        id:2,
-        nome:'João',
-        salario: 15365.50,
-        ativo: true,
-        idade:35
-    }
+const perfis = [
+    {id:1, descricao:"ADMIN"},
+    {id:2, descricao:"NORMAL"}
 ]
 
+
 const typeDefs = gql`
-type Db {
-id: ID
+type User {
+id: Int
 nome: String
 email: String
 telefone: String
+perfil:Perfil
 
 }
-
-type Products {
-    id: ID
-    nome: String
-    valor: Float
+type Perfil {
+    id: Int
+    descricao: String
 }
 
-type Users {
-    idade: Int
-    salario: Float
-    nome: String
-    ativo: Boolean
-    id: ID
-}
+
 type Query {
 
 
-    usuarios: [Users]
-    produtos: [Products]
-    usuario(id:Int, nome:String): Users
-    produto(id:Int, nome:String): Products
-    db:Db
+    usuario(id:Int): User
+    perfis:[Perfil]
     
 }
 
 `
 const resolvers = {
-    Query:{
-        db(){
-            return db
+    User:{
+        telefone(obj) {
+            return obj.telefone_fixo
         },
-       usuarios() {
-        return usuarios
-       },
+        perfil(usuario) {
+            return perfis.find((p) => p.id === usuario.perfil)
+        }
+    },
+    Query:{
+     
        usuario(_, args) {
-        const {id,nome} = args
-        if(id)
-        return usuarios.find((usuario) => usuario.id === args.id)
-        return usuarios.find((usuario) => usuario.nome === args.nome)
+       return db.find(db => db.id === args.id);
        },
-       produtos() {
-        return produtos
-       },
-       produto(_, args) {
-        const {id,nome} = args
-        if(id)
-        return produtos.find((produto) => produto.id === args.id)
-        return produtos.find((produto) => produto.nome === args.nome)
+       perfis() {
+        return perfis
        }
+   
     
     }
 }
