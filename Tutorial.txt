@@ -29,3 +29,14 @@ Int, Float, String, Boolean, ID
 13: adicionei perfil como uma nova propriedade de usuario, depois instaciei em um array perfis associando o id a descrição, depois crio um type query  e associo perfis:[Perfil] ou os dados a tipagem e tambem perfil:Perfil no type User pra fazer uma bifurcação de objetos
 
 14: criei um args no segundo parâmetro de usuario no resolvers com o metodo .find() juntamente com criei no type query o usuario(id:Int): User
+
+15:AULA 09: primeiramente envolvi a variável db em um objeto conteplando o array [usuarios] e o array [perfis], em seguida no resolversacrecentei ambos os arrays nos return.
+
+16:o uso alias é importante pra fazer a chamada no graphql sem ele a chamada dará conflito pra resolver isso basta escrever o alias seguido de ":" e o nome da propriedade "usuario"
+
+17: criei na Query " usuarios:[User]" e no resolvers criei um
+"usuarios: () => db.usuarios" pra  retornar a lista de usuarios 
+
+18: pra criar um fragment no apollo server  depois do bloco Query add "fragment usuarioCompleto on User {}"depois eu insiro as propriedades de usuarios dentro do bloco do fragment, depois é só ir na query que contempla as mesma propriedades e add 3 pontos do spread operator "usuarios{ ...usuarioCompleto}"
+
+19: AULA 10: operation names e enums.Operation name é onome que se dar na pesquisa ao lado de Query no servidor apollo, as chamda vai retornar normalmente. Em typeDefs passei o enum TipoPerfil com os valores das descrição admin e normal. Depois é só jogar o enm tipoPerfil no campo da descrição em typePerfil 
