@@ -26,7 +26,9 @@ const db = {
 
 
 const typeDefs = gql`
-
+enum TipoPerfil {
+    ADMIN NORMAL
+}
 type User {
 id: Int
 nome: String
@@ -37,7 +39,7 @@ perfil:Perfil
 }
 type Perfil {
     id: Int
-    descricao: String
+    descricao: TipoPerfil
 }
 
 
@@ -62,7 +64,7 @@ const resolvers = {
     Query:{
      
        usuario(obj, args) {
-       return db.usuarios.find(db => db.id === args.id);
+       return db.usuarios.find((db) => db.id === args.id);
        },
        perfis() {
         return perfis
