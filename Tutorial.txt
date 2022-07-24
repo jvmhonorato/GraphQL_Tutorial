@@ -40,3 +40,25 @@ Int, Float, String, Boolean, ID
 18: pra criar um fragment no apollo server  depois do bloco Query add "fragment usuarioCompleto on User {}"depois eu insiro as propriedades de usuarios dentro do bloco do fragment, depois é só ir na query que contempla as mesma propriedades e add 3 pontos do spread operator "usuarios{ ...usuarioCompleto}"
 
 19: AULA 10: operation names e enums.Operation name é onome que se dar na pesquisa ao lado de Query no servidor apollo, as chamda vai retornar normalmente. Em typeDefs passei o enum TipoPerfil com os valores das descrição admin e normal. Depois é só jogar o enm tipoPerfil no campo da descrição em typePerfil 
+
+20: AULA 11: Directives & variables no apollo sever na query adiciona uma variavel ao parâmetro  pra ser chamada usando o "$" + nome + tipo Query ($id:Int), depois usa a variavel no lugar do id nna chamda do usuario, pra mudar é só abri um json na aba variable
+e mudar. pra usar a diretiva tambem tem que add um parâmetro: $comPerfil: Boolean! com "!" quando não for retornado no usuarios, depois uso o @include(if:$comPerfil) ou uso so @skip(if:$pular) segue os exemplos abaixo:
+
+query pesquisaDeUsuario($id:Int, $comPerfil: Boolean!,$pular:Boolean!) {
+usuario(id:$id) {
+  nome
+  email @skip(if: $pular)
+  perfil @include(if: $comPerfil) {
+    id
+    descricao
+  }
+}
+}
+
+variable:
+{
+    "id":1,
+    "comPerfil": false,
+    "pular":false
+}
+ 
